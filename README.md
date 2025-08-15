@@ -15,7 +15,8 @@
 
 <em>Built with the tools and technologies:</em>
 
-<img src="https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white" alt="Markdown">
+<img src="https://img.shields.io/badge/Java-007396.svg?style=flat&logo=Java&logoColor=white" alt="Java">
+<img src="https://img.shields.io/badge/JUnit-25A162.svg?style=flat&logo=JUnit5&logoColor=white" alt="JUnit">
 
 </div>
 <br>
