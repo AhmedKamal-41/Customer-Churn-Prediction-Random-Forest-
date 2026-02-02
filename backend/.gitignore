@@ -10,3 +10,4 @@ target/
 # Coverage and logs
 coverage/
 *.log
+__pycache__/
