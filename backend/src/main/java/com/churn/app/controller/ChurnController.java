@@ -27,9 +27,9 @@ public class ChurnController {
     }
 
     @GetMapping("/health")
-    public ResponseEntity<Map<String, String>> health() {
+    public ResponseEntity<Map<String, Object>> health() {
         log.info("GET /api/health");
-        return ResponseEntity.ok(Map.of("status", "ok"));
+        return ResponseEntity.ok(Map.of("ok", true));
     }
 
     @GetMapping("/metadata")

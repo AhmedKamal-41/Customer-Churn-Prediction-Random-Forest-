@@ -39,7 +39,7 @@ class ChurnControllerIntegrationTest {
     void health_returnsOk() throws Exception {
         mockMvc.perform(get("/api/health"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value("ok"));
+                .andExpect(jsonPath("$.ok").value(true));
     }
 
     @Test
