@@ -1,0 +1,3 @@
+com\churn\app\controller\ModelMetricsControllerIntegrationTest.class
+com\churn\app\controller\ChurnControllerIntegrationTest.class
+com\churn\app\service\ChurnScoringServiceTest.class
