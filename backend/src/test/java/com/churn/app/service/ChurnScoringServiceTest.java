@@ -13,7 +13,7 @@ class ChurnScoringServiceTest {
 
     @BeforeEach
     void setUp() {
-        service = new ChurnScoringService();
+        service = new ChurnScoringService(".", "ml/model_store.py");
     }
 
     @Test

@@ -7,7 +7,7 @@ import { useDemoMode } from '../hooks/useDemoMode'
 import { getSession, replaceMessages, updateSession } from '../storage/sessions'
 import MessageList from './MessageList'
 import ChatComposer from './ChatComposer'
-import { STEPS } from './chatFlow'
+import { STEPS, isComplete } from './chatFlow'
 
 export default function ChatWindow({ onStateChange, sessionId }) {
   const [state, dispatch] = useReducer(chatReducer, undefined, getInitialState)
@@ -15,9 +15,13 @@ export default function ChatWindow({ onStateChange, sessionId }) {
   const { setChatState, setResetChatFn } = useChatApp()
   const { online } = useBackendStatus()
   const { demoModeEnabled } = useDemoMode()
-  const canPredict = online || demoModeEnabled
-  const predictDisabledReason =
-    !online && !demoModeEnabled ? 'Backend offline. Enable Demo Mode to continue.' : undefined
+  const answersComplete = isComplete(state.answers)
+  const canPredict = answersComplete
+  const predictDisabledReason = !answersComplete
+    ? 'Complete all answers first.'
+    : !online && !demoModeEnabled
+      ? 'Backend offline. Will try anyway; enable Demo Mode to use fallback.'
+      : undefined
   const restoredSessionIdRef = useRef(null)
   const latestStateRef = useRef(null)
 
@@ -120,7 +124,7 @@ export default function ChatWindow({ onStateChange, sessionId }) {
     const answers = state.answers
     predictTimeoutRef.current = setTimeout(() => {
       predictTimeoutRef.current = null
-      predictSmart(buildPredictBody(answers), { online, demoModeEnabled })
+      predictSmart(buildPredictBody(answers), { demoModeEnabled })
         .then((result) => dispatch({ type: ACTIONS.PREDICT_SUCCESS, payload: result }))
         .catch((err) =>
           dispatch({

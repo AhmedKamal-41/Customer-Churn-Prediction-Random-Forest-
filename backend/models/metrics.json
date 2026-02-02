@@ -1,13 +1,13 @@
 {
   "model": {
     "name": "RandomForestChurn",
-    "version": "2026-02-02T05:48:13Z",
-    "lastTrainedAt": "2026-02-02T05:48:13Z",
-    "lastEvaluatedAt": "2026-02-02T05:48:13Z",
+    "version": "2026-02-02T07:50:43Z",
+    "lastTrainedAt": "2026-02-02T07:50:43Z",
+    "lastEvaluatedAt": "2026-02-02T07:50:43Z",
     "dataset": "telecom_churn_sample.csv",
     "notes": "Trained with train_rf.py on holdout test set."
   },
-  "model_version": "2026-02-02T05:48:13Z",
+  "model_version": "2026-02-02T07:50:43Z",
   "kpis": {
     "accuracy": 0.625,
     "f1": 0.6386,

@@ -1,13 +1,8 @@
 import { demoPredict } from '../demo/demoPredict'
-
-const baseUrl = (() => {
-  const url = import.meta.env.VITE_API_URL || 'http://localhost:8080'
-  if (url && !/^https?:\/\//i.test(url)) return 'https://' + url
-  return url
-})()
+import { apiUrl } from './config'
 
 export async function getHealth() {
-  const url = `${baseUrl}/api/health`
+  const url = apiUrl('/api/health')
   const res = await fetch(url)
   if (import.meta.env.DEV) console.log('[API] GET', url, res.status)
   if (!res.ok) throw new Error('Health check failed')
@@ -16,7 +11,7 @@ export async function getHealth() {
 
 export async function predict(body) {
   try {
-    const res = await fetch(`${baseUrl}/api/predict`, {
+    const res = await fetch(apiUrl('/api/predict'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -33,22 +28,25 @@ export async function predict(body) {
 }
 
 /**
- * Predict using backend when online and not in demo mode; otherwise use demo prediction.
+ * Try real backend first; on failure, use demo prediction if demo mode is on, else throw.
+ * This ensures "Confirm & Predict" always attempts the backend (no reliance on health check).
  * @param {object} body - Predict request body
- * @param {{ online: boolean, demoModeEnabled: boolean }} opts
+ * @param {{ online?: boolean, demoModeEnabled: boolean }} opts
  * @returns {Promise<object>} - { label, score, votes?, explanation, demo? }
  */
-export async function predictSmart(body, { online, demoModeEnabled }) {
-  if (online && !demoModeEnabled) {
+export async function predictSmart(body, { demoModeEnabled }) {
+  try {
     const result = await predict(body)
     return { ...result, demo: false }
+  } catch (err) {
+    if (demoModeEnabled) return Promise.resolve(demoPredict(body))
+    throw err
   }
-  return Promise.resolve(demoPredict(body))
 }
 
 export async function getMetadata() {
   try {
-    const res = await fetch(`${baseUrl}/api/metadata`)
+    const res = await fetch(apiUrl('/api/metadata'))
     if (!res.ok) return null
     return res.json()
   } catch {

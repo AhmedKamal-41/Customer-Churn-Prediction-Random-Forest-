@@ -1,17 +1,13 @@
-const baseUrl = (() => {
-  const url = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-  if (url && !/^https?:\/\//i.test(url)) return 'https://' + url;
-  return url;
-})();
+import { apiUrl } from './config'
 
 export async function getHealth() {
-  const res = await fetch(`${baseUrl}/api/health`);
+  const res = await fetch(apiUrl('/api/health'));
   if (!res.ok) throw new Error('Health check failed');
   return res.json();
 }
 
 export async function predict(body) {
-  const res = await fetch(`${baseUrl}/api/predict`, {
+  const res = await fetch(apiUrl('/api/predict'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
