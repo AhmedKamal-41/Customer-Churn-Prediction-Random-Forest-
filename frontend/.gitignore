@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vite cache
+.vite/
+
+# Python
+__pycache__/
+*.pyc
+htmlcov/
+.coverage
+
+# Coverage and logs
+coverage/
+*.log
