@@ -1,0 +1,12 @@
+# Maven
+target/
+
+# Compiled
+*.class
+*.jar
+*.war
+*.ear
+
+# Coverage and logs
+coverage/
+*.log
