@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Customer Churn Web App
 
 [![UI tests](https://github.com/owner/repo/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/owner/repo/actions/workflows/ui-tests.yml)
@@ -182,3 +183,130 @@ The **Model Dashboard** is the app **home page** (route `/`). Opening the app sh
 The frontend is a **chatbot-style** assistant. The assistant asks for customer details step by step (age, tenure, monthly charges, contract, internet service, payment delay). For numbers you type a value and click Send; for contract and internet service you choose from chips/buttons. After all answers, a **Summary** card shows with "Confirm & Predict" and "Edit Answers". On confirm, the app calls `POST /api/predict` and shows the result (CHURN/NO_CHURN, score, explanation) and a recommended retention action. The **header** shows "Churn Assistant", a Backend Online/Offline status pill, a "Reset chat" button, and a **theme toggle (Light/Dark)**. The **left sidebar** (desktop) has links: Chat, Dashboard (home), About, Model, Testing, Batch, Sessions, Automation. The **right panel** (desktop) shows a live **Customer Profile** (answers) and **Prediction Insight** (after prediction). On mobile, sidebar and right panel are behind a hamburger/drawer.
 
 **Theme:** The theme toggle in the header switches between light and dark mode. The choice is **persisted in localStorage** and **system preference** is used on first visit. To change the palette, edit the CSS variables in **`frontend/src/styles/app.css`**: `:root` for the light theme and `.dark` for the dark theme.
+=======
+<div id="top">
+
+<!-- HEADER STYLE: CLASSIC -->
+<div align="center">
+
+
+# CUSTOMER-CHURN-PREDICTION-RANDOM-FOREST-
+
+<em>Predict Customer Loyalty, Drive Business Growth</em>
+
+<!-- BADGES -->
+<img src="https://img.shields.io/github/last-commit/AhmedKamal-41/Customer-Churn-Prediction-Random-Forest-?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+<img src="https://img.shields.io/github/languages/top/AhmedKamal-41/Customer-Churn-Prediction-Random-Forest-?style=flat&color=0080ff" alt="repo-top-language">
+<img src="https://img.shields.io/github/languages/count/AhmedKamal-41/Customer-Churn-Prediction-Random-Forest-?style=flat&color=0080ff" alt="repo-language-count">
+
+<em>Built with the tools and technologies:</em>
+
+<img src="https://img.shields.io/badge/Java-007396.svg?style=flat&logo=Java&logoColor=white" alt="Java">
+<img src="https://img.shields.io/badge/JUnit-25A162.svg?style=flat&logo=JUnit5&logoColor=white" alt="JUnit">
+
+</div>
+<br>
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+
+---
+
+## Overview
+
+Customer-Churn-Prediction-Random-Forest is an open-source toolkit designed to facilitate the development of reliable customer churn prediction models using Random Forest algorithms. It integrates data processing, model training, validation, and performance evaluation within a scalable architecture.
+
+**Why Customer-Churn-Prediction-Random-Forest?**
+
+This project helps data scientists and developers build effective customer retention solutions. The core features include:
+
+- 🧪 **Data Preparation:** Seamless data ingestion, cleaning, and missing value imputation to ensure high-quality inputs.
+- 🌲 **Decision Tree & Random Forest Models:** Robust implementations for accurate, interpretable predictions.
+- 🔍 **Model Validation:** Comprehensive testing and evaluation pipelines to guarantee model reliability.
+- 💻 **User Interface:** An intuitive interface for deploying predictions and generating actionable retention strategies.
+- ⚙️ **Extensible Architecture:** Modular components supporting scalable machine learning workflows.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+This project requires the following dependencies:
+
+- **Programming Language:** Java
+- **Package Manager:** Maven
+
+### Installation
+
+Build Customer-Churn-Prediction-Random-Forest- from the source and install dependencies:
+
+1. **Clone the repository:**
+
+    ```sh
+    ❯ git clone https://github.com/AhmedKamal-41/Customer-Churn-Prediction-Random-Forest-
+    ```
+
+2. **Navigate to the project directory:**
+
+    ```sh
+    ❯ cd Customer-Churn-Prediction-Random-Forest-
+    ```
+
+3. **Install the dependencies:**
+
+**Using [maven](https://maven.apache.org/):**
+
+```sh
+❯ mvn install
+```
+**Using [maven](https://maven.apache.org/):**
+
+```sh
+❯ mvn install
+```
+
+### Usage
+
+Run the project with:
+
+**Using [maven](https://maven.apache.org/):**
+
+```sh
+mvn exec:java
+```
+**Using [maven](https://maven.apache.org/):**
+
+```sh
+mvn exec:java
+```
+
+### Testing
+
+Customer-churn-prediction-random-forest- uses the {__test_framework__} test framework. Run the test suite with:
+
+**Using [maven](https://maven.apache.org/):**
+
+```sh
+mvn test
+```
+**Using [maven](https://maven.apache.org/):**
+
+```sh
+mvn test
+```
+
+---
+
+<div align="left"><a href="#top">⬆ Return</a></div>
+
+---
+>>>>>>> 0070b2ff8a1da9390007a233ad66469fc91189a6
