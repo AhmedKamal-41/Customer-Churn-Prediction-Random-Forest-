@@ -41,7 +41,7 @@ Evaluation metrics, reliability signals, and drivers: KPIs (Accuracy, F1, ROC-AU
 
 ### Automation — Ortoni report overview
 
-Playwright/Ortoni report dashboard: all tests passed, success rate, last run, duration, and project summary.
+Playwright/Ortoni report dashboard: all tests passed, success rate, last run, duration, and project summary. **Note:** Total automation suite has 12 tests — 8 shown in this dashboard (functional UI tests), and the remaining 4 are CI tests.
 
 ![Automation overview](docs/screenshots/automation.png)
 
