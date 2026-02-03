@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm ci
+      - run: npm install
         working-directory: frontend
       - run: npm run build
         working-directory: frontend
@@ -66,12 +66,12 @@ jobs:
           pip install -r backend/requirements.txt
           cd backend && python ml/train_rf.py --csv data/telecom_churn_sample.csv
       - name: Install frontend dependencies
-        run: npm ci
+        run: npm install
         working-directory: frontend
 
       - name: Install E2E deps and Playwright browsers
         run: |
-          cd e2e && npm ci && npx playwright install --with-deps chromium
+          cd e2e && npm install && npx playwright install --with-deps chromium
 
       - name: Start servers and run E2E
         run: |
