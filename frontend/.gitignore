@@ -26,11 +26,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Playwright / Ortoni
-playwright-report/
-public/playwright-report/
-test-results/
-blob-report/
-.playwright/
-*.sqlite
-*.sqlite3
+
