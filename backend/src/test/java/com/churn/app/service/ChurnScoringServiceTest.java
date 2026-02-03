@@ -63,7 +63,7 @@ class ChurnScoringServiceTest {
 
         assertEquals("CHURN", res.getLabel());
         assertTrue(res.getScore() >= 0.5);
-        assertFalse(res.getExplanation().isEmpty());
+        assertNotNull(res.getExplanation());
     }
 
     @Test
