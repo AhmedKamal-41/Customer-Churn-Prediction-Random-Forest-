@@ -35,12 +35,6 @@ jobs:
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: node scripts/make-automation-summary.mjs
 
-      - name: Prepare site for GitHub Pages
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        run: |
-          mkdir -p site/playwright-report site/qa
-          cp -r frontend/playwright-report/. site/playwright-report/
-
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: always()
@@ -56,21 +50,3 @@ jobs:
           name: playwright-test-results
           path: frontend/test-results/
           retention-days: 7
-
-      - name: Upload GitHub Pages artifact
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy-pages:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-    needs: ui-tests
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment: github-pages
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
