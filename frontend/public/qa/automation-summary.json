@@ -8,6 +8,6 @@
   "timestamp": "2026-02-02T02:10:00Z",
   "branch": "main",
   "commit": "abc123def456",
-  "runUrl": "https://github.com/owner/repo/actions/runs/123",
+  "runUrl": "https://github.com/AhmedKamal-41/Customer-Churn-Prediction-Random-Forest-/actions",
   "reportUrl": "https://report-production-9ff7.up.railway.app/"
 }
