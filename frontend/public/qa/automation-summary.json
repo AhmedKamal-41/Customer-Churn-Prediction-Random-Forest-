@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0,
+  "durationSec": 34,
+  "timestamp": "2026-02-02T02:10:00Z",
+  "branch": "main",
+  "commit": "abc123def456",
+  "runUrl": "https://github.com/owner/repo/actions/runs/123",
+  "reportUrl": "/playwright-report/index.html"
+}
