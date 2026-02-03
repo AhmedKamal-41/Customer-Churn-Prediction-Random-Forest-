@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'backend/requirements.txt'
       - name: Install Python dependencies
         run: pip install -r requirements.txt
         working-directory: backend
@@ -63,13 +65,29 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'backend/requirements.txt'
+
       - name: Install backend Python deps and train model
         run: |
           pip install -r backend/requirements.txt
           cd backend && python ml/train_rf.py --csv data/telecom_churn_sample.csv
+      - name: Cache frontend node_modules
+        uses: actions/cache@v4
+        with:
+          path: frontend/node_modules
+          key: frontend-node-${{ runner.os }}-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: frontend-node-${{ runner.os }}-
       - name: Install frontend dependencies
         run: npm install
         working-directory: frontend
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('e2e/package-lock.json') }}
+          restore-keys: playwright-chromium-${{ runner.os }}-
 
       - name: Install E2E deps and Playwright browsers
         run: |
