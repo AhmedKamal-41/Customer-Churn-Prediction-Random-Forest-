@@ -24,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: backend
       - name: Train model (generates models/metrics.json and rf_pipeline.joblib)
-        run: python ml/train_rf.py
+        run: python ml/train_rf.py --csv data/telecom_churn_sample.csv
         working-directory: backend
       - name: Run tests
         run: mvn test
@@ -68,7 +68,7 @@ jobs:
       - name: Install backend Python deps and train model
         run: |
           pip install -r backend/requirements.txt
-          cd backend && python ml/train_rf.py
+          cd backend && python ml/train_rf.py --csv data/telecom_churn_sample.csv
       - name: Install frontend dependencies
         run: npm ci
         working-directory: frontend
