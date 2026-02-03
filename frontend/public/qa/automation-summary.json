@@ -9,5 +9,5 @@
   "branch": "main",
   "commit": "abc123def456",
   "runUrl": "https://github.com/owner/repo/actions/runs/123",
-  "reportUrl": "/playwright-report/index.html"
+  "reportUrl": "https://report-production-9ff7.up.railway.app/"
 }
