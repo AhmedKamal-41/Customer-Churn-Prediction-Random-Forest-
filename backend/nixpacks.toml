@@ -1,0 +1,14 @@
+[phases.setup]
+nixPkgs = ["openjdk17", "maven", "python311"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = [
+  "python ml/train_rf.py --csv data/telecom_churn_sample.csv",
+  "mvn -q -DskipTests package"
+]
+
+[start]
+cmd = "java -Dserver.port=$PORT -jar target/churn-app-1.0.0-SNAPSHOT.jar"
