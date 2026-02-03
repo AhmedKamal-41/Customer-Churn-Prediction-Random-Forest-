@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 public class ModelMetricsService {
@@ -27,15 +26,10 @@ public class ModelMetricsService {
         this.configuredMetricsPath = metricsPath;
     }
 
+    /** Resolves metrics from configured path only; if it does not exist, caller uses classpath. */
     private Path resolveMetricsPath() {
-        return Stream.of(
-                Path.of(configuredMetricsPath),
-                Path.of("backend/models/metrics.json"),
-                Path.of("models/metrics.json")
-        )
-                .filter(p -> Files.isRegularFile(p))
-                .findFirst()
-                .orElse(null);
+        Path p = Path.of(configuredMetricsPath);
+        return Files.isRegularFile(p) ? p : null;
     }
 
     public ModelMetricsResponse getMetrics() {
